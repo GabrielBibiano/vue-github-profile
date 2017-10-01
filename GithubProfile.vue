@@ -1,5 +1,5 @@
 <template>
-    <div id="widget-user-github" v-bind:style="{ width: width, height: height }">
+    <div id="widget-user-github" v-bind:style="{ width: width }">
         <header>
             <a :href="dataUser.url">
                 <img id="user-image" :src="dataUser.avatar_url" alt="">
@@ -28,9 +28,13 @@
 </template>
 
 <script>
+    const api = axios.create({
+        baseURL: 'https://api.github.com/users'
+    });
+
     import axios from 'axios'
     export default {
-        props: ["width", "height", 'user'],
+        props: ["width", 'user'],
         data(){
             return{
                 dataUser: {},
@@ -43,19 +47,17 @@
         },
         methods: {
             getUser(user){
-                axios.get(`https://api.github.com/users/${user}`)
+                api.get(`/${user}`)
                 .then((response) => {
                     this.dataUser = response.data;
-                    console.log(response.data)
                 })
                 .catch((error) => {
                     console.log(error);
                 });
             },
             getRepos(user){
-                axios.get(`https://api.github.com/users/${user}/repos`)
+                api.get(`/${user}/repos`)
                 .then((response) => {
-                    console.log(response.data)
                     this.repos = response.data;
                 })
                 .catch((error) => {
@@ -72,7 +74,7 @@
         background-color: #353535;
         overflow: auto;
         margin: 0;
-        max-height: 31em;
+        max-height: 33em;
         box-shadow: 0 18px 35px rgba(50,50,93,.1), 0 8px 15px rgba(0,0,0,.07);
     }
     #widget-user-github header{
