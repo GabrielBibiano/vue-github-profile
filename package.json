@@ -1,0 +1,30 @@
+{
+  "name": "vue-github-profile",
+  "version": "1.0.0",
+  "description": "A vue component to view the profile and repos of determined user",
+  "main": "GithubProfile",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielBibiano/vue-github-profile.git"
+  },
+  "keywords": [
+    "VueJs",
+    "github",
+    "profile",
+    "user",
+    "repositories",
+    "vue"
+  ],
+  "author": "Gabriel Bibiano",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2"    
+  },
+  "bugs": {
+    "url": "https://github.com/GabrielBibiano/vue-github-profile/issues"
+  },
+  "homepage": "https://github.com/GabrielBibiano/vue-github-profile#readme"
+}
