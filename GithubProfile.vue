@@ -28,11 +28,12 @@
 </template>
 
 <script>
+    import axios from 'axios'
+    
     const api = axios.create({
         baseURL: 'https://api.github.com/users'
     });
-
-    import axios from 'axios'
+    
     export default {
         props: ["width", 'user'],
         data(){
